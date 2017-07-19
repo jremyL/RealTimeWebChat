@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        title= "RT Sign Up"
+        link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+        //link(rel='stylesheet', href='/css/index.css')
+    body
+        block content
+            .container
+                .row
+                    form(action='/signup' method='post')
+                        div.form-group
+                            label(for="inputFirst") First Name:
+                            input(type="text" class="form-control" id="inputFirst" aria-describedby="firstName" placeholder="John" name="firstName")
+                        div.form-group
+                            label(for="inputLast") Last Name:
+                            input(type="text" class="form-control" id="inputLast" aria-describedby="lastName" placeholder="Doe" name="lastName")
+                        div.form-group
+                            label(for="inputEmail") Email:
+                            input(type="email" class="form-control" id="inputEmail" aria-describedby="email" placeholder="" name="email")
+                        div.form-group
+                            label(for="inputUser") Username:
+                            input(type="text" class="form-control" id="inputUser" aria-describedby="username" placeholder="" name="username")
+                        div.form-group
+                            label(for="inputPass") Password:
+                            input(type="password" class="form-control" id="inputPass" aria-describedby="password1" name="password")
+                        div.form-group
+                            label(for='iconFile') Upload Icon
+                            input(type='file' class="form-control-file" id="iconFile" aria-describedby="fileUpload")
+                        button(type='submit' class="btn btn-primary") Submit
+
+        script(src="/javascripts/jquery-3.2.1.min.js")
+        script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')

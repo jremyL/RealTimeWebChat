@@ -1,0 +1,52 @@
+doctype
+html
+    head
+        link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel='stylesheet')
+        link(href="/stylesheets/style.css" rel='stylesheet')
+
+        title= "Real time web chat"
+    body
+        div(id="myModal" class="modal fade" role="dialog")
+            div(class="modal-dialog")
+                div(class="modal-content")
+                    div(class="modal-header")
+                        h4(class="modal-title") User-Name
+                    div(class="modal-body")
+                        p Please enter a username
+                        input(id="username" type="text" class="form-control" placeholder="Xx420noscopexX")
+                    div(class="modal-footer")
+                        button(id="submitUser" type="button" class="btn btn-success") Submit
+        div.container
+            div.row
+                div(class="jumbotron jumbotron-fluid col-xs-12")
+                    div(class="container")
+                        h1(class="display-3 text-center") Private Chat
+                div(class="col-xs-10 col-xs-push-1")
+                    div(class="panel panel-primary")
+                        div.panel-heading
+                            span(class="glyphicon glyphicon-comment") Chat
+                            div(class="btn-group pull-right")
+                                button(type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown")
+                                    span(class="glyphicon glyphicon-chevron-down")
+                                ul(class="dropdown-menu slidedown")
+                                    li
+                                        a(href="#") Refresh
+                                            span(class="glyphicon glyphicon-refresh")
+                                    li
+                                        a(href="#") Sign Out
+                                            span(class="glyphicon glyphicon-off")
+                        div.panel-body
+                            ul.chat
+                        div.panel-footer
+                            div.input-group
+                                input(id="btn-input" type="text" class="form-control input-sm" placeholder="Type your message here...")
+                                span.input-group-btn
+                                    button(class="btn btn-warning btn-sm" id="btn-chat") Send
+    script(src="/javascripts/jquery-3.2.1.min.js")
+    script(src='/javascripts/jquery.cookie.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    //script(src='/model/User.js')
+    //script(src="/model/Message.js")
+    script(src="/javascripts/frontendlogic.js")
+    script(src='/socket.io/socket.io.js')
+
