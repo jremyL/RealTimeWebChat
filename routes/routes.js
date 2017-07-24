@@ -2,7 +2,7 @@
  * Created by Jeremy on 7/17/2017.
  */
 module.exports = function (app, passport) {
-    app.get('/', function (req, res) {
+    app.get('/', isLoggedIn, function (req, res) {
         res.render('page');
     });
 
@@ -15,6 +15,12 @@ module.exports = function (app, passport) {
     });
 
     app.post('/signup', passport.authenticate('local-signup', {
+        successRedirect : '/', // redirect to the secure profile section
+        failureRedirect : '/error', // redirect back to the signup page if there is an error
+        failureFlash : true // allow flash messages
+    }));
+
+    app.post('/login', passport.authenticate('local-login', {
         successRedirect : '/', // redirect to the secure profile section
         failureRedirect : '/error', // redirect back to the signup page if there is an error
         failureFlash : true // allow flash messages
@@ -34,4 +40,14 @@ module.exports = function (app, passport) {
     //     // if they aren't redirect them to the home page
     //     res.redirect('/error');
     // }
+}
+
+function isLoggedIn(req, res, next) {
+
+    // if user is authenticated in the session, carry on
+    if (req.isAuthenticated())
+        return next();
+
+    // if they aren't redirect them to the home page
+    res.redirect('/error');
 }
